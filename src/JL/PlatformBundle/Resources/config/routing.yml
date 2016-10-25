@@ -1,3 +1,7 @@
 jl_platform_homepage:
     path:     /
     defaults: { _controller: JLPlatformBundle:Accueil:accueil }
+
+jl_platform_portfolio:
+    path:     /portfolio
+    defaults: { _controller: JLPlatformBundle:Accueil:portfolio }
