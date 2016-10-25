@@ -1,0 +1,134 @@
+{# src/JL/PlatformBundle/Resources/views/portfolio.html.twig #}
+
+{% extends "::base.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Accueil
+{% endblock title %}
+
+{% block bsFile %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/nivo-slider.css') }}" rel="stylesheet">
+{% endblock bsFile %}
+
+{% block contentBody %}
+    <div class="container">
+        <div class="row">
+            <article class="col-xs-3 work">
+                <div class="row">
+                    <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
+                </div>
+                <div class="row" style="padding-left: 5px;">
+                    <h6 style="padding-top: 5px;"><strong>Atlantica</strong></h6>
+                    <em class="text-muted">PHP / Bootstrap</em>
+                </div>
+
+                <div class="work_detail">
+                    <hr class="separtor-row">
+                    <div class="col-xs-8">
+                        <div class="work_slideshow stagger4">
+                            <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top" alt="">
+                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
+                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h2 class="stagger1">Atlantica</h2>
+                        <p class="stagger2"><em>PHP / Bootstrap</em></p>
+                        <p class="stagger3">lorem Ipsum Text Descriptum Porum Testum qualitum degenium</p>
+                    </div>
+                    <hr class="separtor-row">
+                </div>
+            </article>
+
+            <article class="col-xs-3 work">
+                <div class="row">
+                    <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
+                </div>
+                <div class="row" style="padding-left: 5px;">
+                    <h6 style="padding-top: 5px;"><strong>Atlantica</strong></h6>
+                    <em class="text-muted">PHP / Bootstrap</em>
+                </div>
+
+                <div class="work_detail">
+                    <hr class="separtor-row">
+                    <div class="col-xs-8">
+                        <div class="work_slideshow stagger4">
+                            <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top" alt="">
+                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
+                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h2 class="stagger1">Atlantica</h2>
+                        <p class="stagger2"><em>PHP / Bootstrap</em></p>
+                        <p class="stagger3">lorem Ipsum Text Descriptum Porum Testum qualitum degenium</p>
+                    </div>
+                    <hr class="separtor-row">
+                </div>
+            </article>
+
+            <article class="col-xs-3 work">
+                <div class="row">
+                    <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
+                </div>
+                <div class="row" style="padding-left: 5px;">
+                    <h6 style="padding-top: 5px;"><strong>Atlantica</strong></h6>
+                    <em class="text-muted">PHP / Bootstrap</em>
+                </div>
+
+                <div class="work_detail">
+                    <hr class="separtor-row">
+                    <div class="col-xs-8">
+                        <div class="work_slideshow stagger4">
+                            <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top" alt="">
+                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
+                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <h2 class="stagger1">Atlantica</h2>
+                        <p class="stagger2"><em>PHP / Bootstrap</em></p>
+                        <p class="stagger3">lorem Ipsum Text Descriptum Porum Testum qualitum degenium</p>
+                    </div>
+                    <hr class="separtor-row">
+                </div>
+            </article>
+        </div>
+        <div class="row row-detail"></div>
+    </div>
+
+    <hr class="separtor-footer">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-4">
+                <h6 style="font-size: 0.8em;"><strong>A propos</strong></h6>
+                <p class="text-muted">
+                    <em>
+                        Je m'appelle Jérôme LELIEVRE, j'ai 22 ans. j'ai commencé le développement web à l'âge de 13 ans pour développer des petits sites web personnels.
+                        Faute de temps j'ai repris le développement beaucoup plus tard. Autodidacte de formation, j'aime expérimenter, découvrir et apprendre au fur et à mesure de mes projets.
+                    </em>
+                </p>
+            </div>
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
+                <h6 style="font-size: 0.8em;"><strong>Retrouvez moi sur les réseaux sociaux</strong></h6>
+                <p class="text-muted">
+                    <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                    <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                    <a href="#"><i id="social-ld" class="fa fa-linkedin-square fa-3x social"></i></a>
+                    <a href="mailto:jerome.lelievre2@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock contentBody %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.nivo.slider.pack.js') }}"></script>
+    <script src="{{ asset('assets/js/portfolio.js') }}"></script>
+{% endblock javascripts %}
