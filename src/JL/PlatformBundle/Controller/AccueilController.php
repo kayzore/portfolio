@@ -6,8 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AccueilController extends Controller
 {
-    public function indexAction($name)
+    public function accueilAction()
     {
-        return $this->render('JLPlatformBundle:Accueil:index.html.twig', array('name' => $name));
+        return $this->render('JLPlatformBundle::index.html.twig');
+    }
+
+    public function portfolioAction()
+    {
+        return $this->render('JLPlatformBundle::portfolio.html.twig');
     }
 }
