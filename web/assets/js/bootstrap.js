@@ -1960,7 +1960,7 @@ var Modal = function ($) {
 
     // ----------------------------------------------------------------------
     // the following methods are used to handle overflowing modals
-    // todo (fat): these should probably be refactored out of modal.js
+    // (fat): these should probably be refactored out of modal.js
     // ----------------------------------------------------------------------
 
     Modal.prototype._handleUpdate = function _handleUpdate() {
@@ -2224,7 +2224,7 @@ var ScrollSpy = function ($) {
         }
 
         if (target && (target.offsetWidth || target.offsetHeight)) {
-          // todo (fat): remove sketch reliance on jQuery position/offset
+          // (fat): remove sketch reliance on jQuery position/offset
           return [$(target)[offsetMethod]().top + offsetBase, targetSelector];
         }
         return null;
@@ -2327,7 +2327,7 @@ var ScrollSpy = function ($) {
         $link.closest(Selector.DROPDOWN).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE);
         $link.addClass(ClassName.ACTIVE);
       } else {
-        // todo (fat) this is kinda sus...
+        // (fat) this is kinda sus...
         // recursively add actives to tested nav-links
         $link.parents(Selector.LI).find(Selector.NAV_LINKS).addClass(ClassName.ACTIVE);
       }
