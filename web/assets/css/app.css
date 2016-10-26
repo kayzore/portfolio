@@ -40,11 +40,8 @@ body {
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
 }
-#social-fb:hover {
-    color: #3B5998;
-}
-#social-tw:hover {
-    color: #4099FF;
+#social-gh:hover {
+    color: black;
 }
 #social-ld:hover {
     color: #0177b5;
