@@ -1,0 +1,24 @@
+jl_platform_homepage:
+    path:     /
+    methods: [ get ]
+    defaults: { _controller: JLPlatformBundle:Accueil:accueil }
+
+jl_platform_portfolio:
+    path:     /mon-portfolio
+    methods: [ get ]
+    defaults: { _controller: JLPlatformBundle:Accueil:portfolio }
+
+jl_platform_competences:
+    path:     /mes-competences
+    methods: [ get ]
+    defaults: { _controller: JLPlatformBundle:Accueil:competences }
+
+jl_platform_contact:
+    path:     /contact
+    methods: [ get ]
+    defaults: { _controller: JLPlatformBundle:Accueil:contact }
+
+jl_platform_contact_post:
+    path:     /contact
+    methods: [ post ]
+    defaults: { _controller: JLPlatformBundle:Accueil:contactPost }
