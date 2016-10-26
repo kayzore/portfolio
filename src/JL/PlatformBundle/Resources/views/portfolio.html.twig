@@ -27,17 +27,7 @@
                 {% if nbRealisation == 0 %}
                     <div class="row">
                 {% endif %}
-                        <article class="col-xs-3 work">
-                            <div class="row" style="min-height: 150px;">
-                                <img src="{{ realisation.urlImage }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
-                            </div>
-                            <div class="row" style="padding-left: 5px;">
-                                <h6 style="padding-top: 5px;"><strong>{{ realisation.projetName }}</strong></h6>
-                                <em class="text-muted">{{ realisation.shortDescription }}</em>
-                            </div>
-                            {{ include('@JLPlatform/portfolio/workDetails.html.twig') }}
-                        </article>
-                        {% set nbRealisation = nbRealisation + 1 %}
+                        {{ include('@JLPlatform/portfolio/workDetails.html.twig') }}
                 {% if nbRealisation == 4 or nbRealisation == allRealisation|length %}
                     </div>
                     <div class="row row-detail"></div>
