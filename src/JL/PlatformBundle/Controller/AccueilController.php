@@ -8,11 +8,19 @@ class AccueilController extends Controller
 {
     public function accueilAction()
     {
-        return $this->render('JLPlatformBundle::index.html.twig');
+        $portfolioService = $this->container->get('jl_platform.portfolio');
+        $lastRealisation = $portfolioService->getLastRealisation();
+        return $this->render('JLPlatformBundle::index.html.twig', array(
+            'lastRealisation' => $lastRealisation
+        ));
     }
 
     public function portfolioAction()
     {
-        return $this->render('JLPlatformBundle::portfolio.html.twig');
+        $portfolioService = $this->container->get('jl_platform.portfolio');
+        $allRealisation = $portfolioService->getAllRealisation();
+        return $this->render('JLPlatformBundle::portfolio.html.twig', array(
+            'allRealisation' => $allRealisation
+        ));
     }
 }
