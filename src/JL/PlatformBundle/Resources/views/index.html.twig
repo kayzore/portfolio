@@ -1,0 +1,116 @@
+{# src/JL/PlatformBundle/Resources/views/index.html.twig #}
+
+{% extends "::base.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Accueil
+{% endblock title %}
+
+{% block bsFile %}
+    {{ parent() }}
+{% endblock bsFile %}
+
+{% block contentBody %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <img src="{{ asset('assets/img/coding.jpg') }}" class="img-fluid rounded-circle" alt="Coding Image">
+            </div>
+            <div class="col-lg-9">
+                <h2 class="mt-1"><strong id="title-page"></strong></h2>
+                <p>
+                    Ça tombe bien ! Je suis passionné par la programmation et particulièrement par le web !<br>
+                    Si mon profil vous intéresse n'hésitez pas à me <a href=""><i class="fa fa-envelope-o" aria-hidden="true"></i> contacter</a>
+                    ou regardez <a href="{{ path('jl_platform_portfolio') }}">mon portfolio <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </p>
+            </div>
+        </div>
+        <hr class="separator-row">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 style="float: left;">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Informations</strong>
+                    <em class="text-muted" style="font-size: 0.6em;">A propos de moi</em>
+                </h4>
+                <br><br>
+                <div class="col-lg-6 border-right">
+                    <p>
+                        Je m'appelle Jérôme LELIEVRE, j'ai 22 ans. j'ai commencé le développement web à l'âge de 13 ans pour développer des petits sites web personnels.
+                        Faute de temps j'ai repris le développement beaucoup plus tard. Autodidacte de formation, j'aime expérimenter, découvrir et apprendre au fur et à mesure de mes projets.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <p>
+                        Rigoureux dans mes objectifs et mes méthodes de travail, il me tient à coeur de montrer toutes mes compétences.
+                        Ma motivation est une de mes qualités principales. A force d'acharnement je rompt toutes les difficultées qui se présentent.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr class="separator-row">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <h4 style="float: left;">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-briefcase fa-stack-1x" aria-hidden="true"></i>
+                            <i class="fa fa-check fa-stack-2x text-success" style="font-size: 0.8em;padding-top: 8px;padding-left: 30px;" aria-hidden="true"></i>
+                        </span>
+                        <strong>Mes dernières réalisations</strong>
+                        <em class="text-muted" style="font-size: 0.6em;">Mes derniers projets</em>
+                    </h4>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        {% if lastRealisation|length > 0 %}
+                            {% for realisation in lastRealisation %}
+                                <div class="col-lg-3">
+                                    <div class="row">
+                                        <img src="{{ realisation.urlImage }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
+                                    </div>
+                                    <div class="row" style="padding-left: 5px;">
+                                        <h6 style="padding-top: 5px;"><strong>{{ realisation.projetName }}</strong></h6>
+                                        <em class="text-muted">{{ realisation.shortDescription }}</em>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="alert alert-info" role="alert">
+                                <strong>Ooops</strong> Je n'ai aucune réalisation à afficher pour le moment, mais je vais en ajouter prochainement !
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="separator-footer">
+    {{ include('@JLPlatform/footer.html.twig') }}
+{% endblock contentBody %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function(){
+            var str1 = "Vous recherchez un developpeur web ";
+            var valide = false;
+
+            var showText = function( target, message, index, interval ){
+                if ( index < message.length ){
+                    $( target ).append( message[ index++ ] );
+
+                    setTimeout( function(){
+                        showText( target, message, index, interval);
+                    }, interval);
+                }
+                if(index == message.length && valide == false){
+                    valide = true;
+                    document.getElementById('title-page').innerHTML += ' <i class="fa fa-question-circle fa-spin fa-fw" aria-hidden="true"></i>';
+                }
+            };
+
+            showText("#title-page", str1, 0, 100);
+
+        });
+    </script>
+{% endblock javascripts %}
