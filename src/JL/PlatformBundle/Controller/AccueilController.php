@@ -23,4 +23,9 @@ class AccueilController extends Controller
             'allRealisation' => $allRealisation
         ));
     }
+
+    public function competencesAction()
+    {
+        return $this->render('JLPlatformBundle::competences.html.twig');
+    }
 }
