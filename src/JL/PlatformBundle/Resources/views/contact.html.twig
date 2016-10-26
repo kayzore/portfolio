@@ -22,9 +22,11 @@
         </div>
         <div class="row mt-2">
             <div class="col-md-12">
-                {% if resultSend is defined %}
-                    <div class="alert alert-success" role="alert">{{ resultSend }}</div>
-                {% endif %}
+                {% for message in app.session.flashbag.get('successPostMessage') %}
+                    <div class="row">
+                        <div class="alert alert-success">{{ message }}</div>
+                    </div>
+                {% endfor %}
                 {{ form_start(form, {'attr': {'class': 'form-horizontal', 'action': path('jl_platform_contact_post')}}) }}
                 {{ form_errors(form) }}
                 <div class="form-group">

@@ -66,11 +66,8 @@ class AccueilController extends Controller
 
         $this->get('mailer')->send($message);
 
-        $resultSend = 'Votre message à été envoyé avec succés.';
+        $this->get('session')->getFlashBag()->add('successPostMessage', 'Votre message à été envoyé avec succés.');
 
-        return $this->render('@JLPlatform/contact.html.twig', array(
-            'form' => $form->createView(),
-            'resultSend' => $resultSend,
-        ));
+        return $this->redirectToRoute('jl_platform_contact');
     }
 }
