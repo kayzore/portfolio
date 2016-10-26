@@ -14,12 +14,12 @@ body {
     border-left: 1px solid #ddd;
 }
 
-.separtor-row {
+.separator-row {
     margin-top: 50px;
     margin-bottom: 50px;
     border: 0; border-bottom: 1px dashed #ccc; background: #999;opacity: 0.5;
 }
-.separtor-footer {
+.separator-footer {
     margin-top: 50px;
     margin-bottom: 50px;
     border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc);
@@ -67,4 +67,8 @@ em {
 .work_slideshow {
     height: 346px;
     overflow-y: hidden;
+}
+.work_slideshow img {
+    width: 150px;
+    height: 50 !important;
 }
