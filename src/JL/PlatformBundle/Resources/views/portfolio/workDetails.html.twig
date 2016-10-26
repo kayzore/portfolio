@@ -1,16 +1,26 @@
-<div class="work_detail">
-    <hr class="separator-row">
-    <div class="col-xs-8">
-        <div class="work_slideshow stagger4">
-            {% for image in realisation.projectImages %}
-                <img src="{{ image.urlImage }}" class="d-inline-block align-top image-slide" alt="">
-            {% endfor %}
+<article class="col-xs-3 work">
+    <div class="row" style="min-height: 150px;">
+        <img src="{{ realisation.urlImage }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
+    </div>
+    <div class="row" style="padding-left: 5px;">
+        <h6 style="padding-top: 5px;"><strong>{{ realisation.projetName }}</strong></h6>
+        <em class="text-muted">{{ realisation.shortDescription }}</em>
+    </div>
+    <div class="work_detail">
+        <hr class="separator-row">
+        <div class="col-xs-8">
+            <div class="work_slideshow stagger4">
+                {% for image in realisation.projectImages %}
+                    <img src="{{ image.urlImage }}" class="d-inline-block align-top image-slide" alt="">
+                {% endfor %}
+            </div>
         </div>
+        <div class="col-xs-4">
+            <h2 class="stagger1">{{ realisation.projetName }}</h2>
+            <p class="stagger2"><em>{{ realisation.shortDescription }}</em></p>
+            <p class="stagger3">{{ realisation.description }}</p>
+        </div>
+        <hr class="separator-row">
     </div>
-    <div class="col-xs-4">
-        <h2 class="stagger1">{{ realisation.projetName }}</h2>
-        <p class="stagger2"><em>{{ realisation.shortDescription }}</em></p>
-        <p class="stagger3">{{ realisation.description }}</p>
-    </div>
-    <hr class="separator-row">
-</div>
+</article>
+{% set nbRealisation = nbRealisation + 1 %}
