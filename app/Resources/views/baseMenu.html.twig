@@ -46,11 +46,19 @@
                         </a>
                     </li>
                 {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i> Contact
-                    </a>
-                </li>
+                {% if app.request.get('_route') == 'jl_platform_contact' or app.request.get('_route') == 'jl_platform_contact_post'%}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('jl_platform_contact') }}">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i> Contact
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('jl_platform_contact') }}">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i> Contact
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
