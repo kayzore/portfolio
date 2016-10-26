@@ -1,4 +1,4 @@
 services:
-#    jl_platform.example:
-#        class: JL\PlatformBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    jl_platform.portfolio:
+        class:      JL\PlatformBundle\Services\JLPortfolio
+        arguments:  [@doctrine.orm.entity_manager]
