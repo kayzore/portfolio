@@ -14,10 +14,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <img src="{{ asset('assets/img/coding.jpg') }}" class="img-fluid rounded-circle" alt="Responsive image">
+                <img src="{{ asset('assets/img/coding.jpg') }}" class="img-fluid rounded-circle" alt="Coding Image">
             </div>
             <div class="col-lg-9">
-                <h2 class="mt-1"><strong>Vous recherchez un developpeur web </strong> <i class="fa fa-question-circle fa-spin fa-fw" aria-hidden="true"></i></h2>
+                <h2 class="mt-1"><strong id="title-page"></strong></h2>
                 <p>
                     Ça tombe bien ! Je suis passionné par la programmation et particulièrement par le web !<br>
                     Si mon profil vous intéresse n'hésitez pas à me <a href=""><i class="fa fa-envelope-o" aria-hidden="true"></i> contacter</a>
@@ -90,4 +90,27 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script type="text/javascript">
+        $(function(){
+            var str1 = "Vous recherchez un developpeur web ";
+            var valide = false;
+
+            var showText = function( target, message, index, interval ){
+                if ( index < message.length ){
+                    $( target ).append( message[ index++ ] );
+
+                    setTimeout( function(){
+                        showText( target, message, index, interval);
+                    }, interval);
+                }
+                if(index == message.length && valide == false){
+                    valide = true;
+                    document.getElementById('title-page').innerHTML += ' <i class="fa fa-question-circle fa-spin fa-fw" aria-hidden="true"></i>';
+                }
+            };
+
+            showText("#title-page", str1, 0, 100);
+
+        });
+    </script>
 {% endblock javascripts %}
