@@ -1,8 +1,6 @@
 <?php
 namespace JL\PlatformBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
 class Contact
 {
     protected $email;
