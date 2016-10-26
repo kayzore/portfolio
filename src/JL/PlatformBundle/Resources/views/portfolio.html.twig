@@ -13,117 +13,52 @@
 
 {% block contentBody %}
     <div class="container">
-        <div class="row">
-            <article class="col-xs-3 work">
-                <div class="row">
-                    <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
-                </div>
-                <div class="row" style="padding-left: 5px;">
-                    <h6 style="padding-top: 5px;"><strong>Atlantica</strong></h6>
-                    <em class="text-muted">PHP / Bootstrap</em>
-                </div>
+        {% if allRealisation|length > 0 %}
+            {% set nbRealisation = 0 %}
+            {% for realisation in allRealisation %}
+                {% if nbRealisation == 0 %}
+                    <div class="row">
+                {% endif %}
+                        <article class="col-xs-3 work">
+                            <div class="row" style="min-height: 150px;">
+                                <img src="{{ realisation.urlImage }}" width="250" height="250" class="d-inline-block align-top" alt="">
+                            </div>
+                            <div class="row" style="padding-left: 5px;">
+                                <h6 style="padding-top: 5px;"><strong>{{ realisation.projetName }}</strong></h6>
+                                <em class="text-muted">{{ realisation.shortDescription }}</em>
+                            </div>
 
-                <div class="work_detail">
-                    <hr class="separtor-row">
-                    <div class="col-xs-8">
-                        <div class="work_slideshow stagger4">
-                            <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top" alt="">
-                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
-                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
-                        </div>
+                            <div class="work_detail">
+                                <hr class="separator-row">
+                                <div class="col-xs-8">
+                                    <div class="work_slideshow stagger4">
+                                        {% for image in realisation.projectImages %}
+                                            <img src="{{ image.urlImage }}" class="d-inline-block align-top image-slide" alt="">
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <h2 class="stagger1">{{ realisation.projetName }}</h2>
+                                    <p class="stagger2"><em>{{ realisation.shortDescription }}</em></p>
+                                    <p class="stagger3">{{ realisation.description }}</p>
+                                </div>
+                                <hr class="separator-row">
+                            </div>
+                        </article>
+                        {% set nbRealisation = nbRealisation + 1 %}
+                {% if nbRealisation == 4 or nbRealisation == allRealisation|length %}
                     </div>
-                    <div class="col-xs-4">
-                        <h2 class="stagger1">Atlantica</h2>
-                        <p class="stagger2"><em>PHP / Bootstrap</em></p>
-                        <p class="stagger3">lorem Ipsum Text Descriptum Porum Testum qualitum degenium</p>
-                    </div>
-                    <hr class="separtor-row">
-                </div>
-            </article>
-
-            <article class="col-xs-3 work">
-                <div class="row">
-                    <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
-                </div>
-                <div class="row" style="padding-left: 5px;">
-                    <h6 style="padding-top: 5px;"><strong>Atlantica</strong></h6>
-                    <em class="text-muted">PHP / Bootstrap</em>
-                </div>
-
-                <div class="work_detail">
-                    <hr class="separtor-row">
-                    <div class="col-xs-8">
-                        <div class="work_slideshow stagger4">
-                            <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top" alt="">
-                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
-                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <h2 class="stagger1">Atlantica</h2>
-                        <p class="stagger2"><em>PHP / Bootstrap</em></p>
-                        <p class="stagger3">lorem Ipsum Text Descriptum Porum Testum qualitum degenium</p>
-                    </div>
-                    <hr class="separtor-row">
-                </div>
-            </article>
-
-            <article class="col-xs-3 work">
-                <div class="row">
-                    <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
-                </div>
-                <div class="row" style="padding-left: 5px;">
-                    <h6 style="padding-top: 5px;"><strong>Atlantica</strong></h6>
-                    <em class="text-muted">PHP / Bootstrap</em>
-                </div>
-
-                <div class="work_detail">
-                    <hr class="separtor-row">
-                    <div class="col-xs-8">
-                        <div class="work_slideshow stagger4">
-                            <img src="{{ asset('uploads/img/atlantica.png') }}" width="250" height="150" class="d-inline-block align-top" alt="">
-                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
-                            <img src="http://lorempicsum.com/futurama/460/250/2" width="250" height="150" class="d-inline-block align-top" alt="">
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <h2 class="stagger1">Atlantica</h2>
-                        <p class="stagger2"><em>PHP / Bootstrap</em></p>
-                        <p class="stagger3">lorem Ipsum Text Descriptum Porum Testum qualitum degenium</p>
-                    </div>
-                    <hr class="separtor-row">
-                </div>
-            </article>
-        </div>
-        <div class="row row-detail"></div>
+                    <div class="row row-detail"></div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info" role="alert">
+                <strong>Ooops</strong> Je n'ai aucune réalisation à afficher pour le moment, mais je vais en ajouter prochainement !
+            </div>
+        {% endif %}
     </div>
-
-    <hr class="separtor-footer">
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="col-lg-4">
-                <h6 style="font-size: 0.8em;"><strong>A propos</strong></h6>
-                <p class="text-muted">
-                    <em>
-                        Je m'appelle Jérôme LELIEVRE, j'ai 22 ans. j'ai commencé le développement web à l'âge de 13 ans pour développer des petits sites web personnels.
-                        Faute de temps j'ai repris le développement beaucoup plus tard. Autodidacte de formation, j'aime expérimenter, découvrir et apprendre au fur et à mesure de mes projets.
-                    </em>
-                </p>
-            </div>
-            <div class="col-lg-4">
-            </div>
-            <div class="col-lg-4">
-                <h6 style="font-size: 0.8em;"><strong>Retrouvez moi sur les réseaux sociaux</strong></h6>
-                <p class="text-muted">
-                    <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                    <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                    <a href="#"><i id="social-ld" class="fa fa-linkedin-square fa-3x social"></i></a>
-                    <a href="mailto:jerome.lelievre2@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-                </p>
-            </div>
-        </div>
-    </div>
+    <hr class="separator-footer">
+    {{ include('@JLPlatform/footer.html.twig') }}
 {% endblock contentBody %}
 
 {% block javascripts %}
