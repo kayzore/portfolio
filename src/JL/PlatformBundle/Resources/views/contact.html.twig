@@ -14,43 +14,42 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h4 style="float: left;">
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i><strong id="title-page"></strong>
-                    <em class="text-muted" style="font-size: 0.6em;">M'envoyer un pigeon electronique</em>
-                </h4>
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-md-12">
-                {% for message in app.session.flashbag.get('successPostMessage') %}
-                    <div class="row">
-                        <div class="alert alert-success">{{ message }}</div>
-                    </div>
-                {% endfor %}
-                {{ form_start(form, {'attr': {'class': 'form-horizontal', 'action': path('jl_platform_contact_post')}}) }}
-                {{ form_errors(form) }}
-                <div class="form-group">
-                    {{ form_label(form.email, "Votre Email", {'label_attr': {'for': 'emailInput'}}) }}
-                    {{ form_errors(form.email) }}
-                    {{ form_widget(form.email, {'attr': {'type': 'email', 'class': 'form-control', 'id': 'emailInput', 'placeholder': 'Votre email'}}) }}
-                    <small id="emailHelp" class="form-text text-muted">L'email saisie ci-dessus me permettra de vous répondre plus rapidement.</small>
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.subject, "Objet", {'label_attr': {'for': 'objetInput'}}) }}
-                    {{ form_errors(form.subject) }}
-                    {{ form_widget(form.subject, {'attr': {'type': 'text', 'class': 'form-control', 'id': 'objetInput', 'placeholder': 'Objet de votre message'}}) }}
-                    <small id="emailHelp" class="form-text text-muted">L'objet de contact est le titre de votre demande.</small>
-                </div>
-                <div class="form-group">
+                <div class="col-lg-12">
+                    <h4>
+                        <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i><strong id="title-page"></strong>
+                    </h4>
+                    <div class="well">
+                        {% for message in app.session.flashbag.get('successPostMessage') %}
+                            <div class="row">
+                                <div class="alert alert-success">{{ message }}</div>
+                            </div>
+                        {% endfor %}
+                        {{ form_start(form, {'attr': {'class': 'form-horizontal', 'action': path('jl_platform_contact_post')}}) }}
+                        {{ form_errors(form) }}
+                        <div class="form-group">
+                            {{ form_label(form.email, "Votre Email", {'label_attr': {'for': 'emailInput'}}) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'type': 'email', 'class': 'form-control', 'id': 'emailInput', 'placeholder': 'Votre email'}}) }}
+                            <small id="emailHelp" class="form-text text-muted">L'email saisie ci-dessus me permettra de vous répondre plus rapidement.</small>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.subject, "Objet", {'label_attr': {'for': 'objetInput'}}) }}
+                            {{ form_errors(form.subject) }}
+                            {{ form_widget(form.subject, {'attr': {'type': 'text', 'class': 'form-control', 'id': 'objetInput', 'placeholder': 'Objet de votre message'}}) }}
+                            <small id="emailHelp" class="form-text text-muted">L'objet de contact est le titre de votre demande.</small>
+                        </div>
+                        <div class="form-group">
 
-                    {{ form_label(form.content, "Message", {'label_attr': {'for': 'messageInput'}}) }}
-                    {{ form_errors(form.content) }}
-                    {{ form_widget(form.content, {'attr': {'class': 'form-control', 'id': 'messageInput', 'row': '5', 'placeholder': 'Votre message'}}) }}
+                            {{ form_label(form.content, "Message", {'label_attr': {'for': 'messageInput'}}) }}
+                            {{ form_errors(form.content) }}
+                            {{ form_widget(form.content, {'attr': {'class': 'form-control', 'id': 'messageInput', 'row': '5', 'placeholder': 'Votre message'}}) }}
+                        </div>
+                        {{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-primary'}}) }}
+                        {{ form_row(form._token) }}
+                        {{ form_rest(form) }}
+                        {{ form_end(form) }}
+                    </div>
                 </div>
-                {{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-primary'}}) }}
-                {{ form_row(form._token) }}
-                {{ form_rest(form) }}
-                {{ form_end(form) }}
             </div>
         </div>
     </div>

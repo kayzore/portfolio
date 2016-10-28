@@ -5,14 +5,12 @@ jQuery(document).ready(function ($) {
 
     $('.work').click(function (e) {
         e.preventDefault();
-
         var $work = $(this);
         if($work.hasClass('active')){
             return true;
         }
         var $detail = $work.parent().nextAll('.row-detail:first');
         var $work_detail = $('.work_detail', $work).clone();
-
         var showElement = function () {
             $detail.append($work_detail);
             $work_detail.slideDown();
@@ -23,14 +21,12 @@ jQuery(document).ready(function ($) {
             }
             $active = $work_detail;
         };
-
         var hideActive = function () {
             var $el = $active;
             $el.slideUp(500, function () {
                 $el.remove();
             });
         };
-        
         var buildSlideshow = function () {
             $('.work_slideshow', $work_detail).nivoSlider({
                 effect : 'boxRain',
@@ -39,18 +35,11 @@ jQuery(document).ready(function ($) {
                 pauseTime: 4000
             });
         };
-        
         // Traitement
         $('.work').removeClass('active');
         $work.addClass('active');
-
-
         if($active){hideActive();}
-
         showElement();
         buildSlideshow();
-
     });
-
-
 });
