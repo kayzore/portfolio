@@ -14,10 +14,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <img src="{{ asset('assets/img/coding.jpg') }}" class="img-fluid rounded-circle" alt="Coding Image">
+                <img src="{{ asset('assets/img/coding.jpg') }}" class="img-fluid img-circle" alt="Coding Image">
             </div>
             <div class="col-lg-9">
-                <h2 class="mt-1"><strong id="title-page"></strong></h2>
+                <h2 style="margin-top: 55px;"><strong id="title-page"></strong></h2>
                 <p>
                     Ça tombe bien ! Je suis passionné par la programmation et particulièrement par le web !<br>
                     Si mon profil vous intéresse n'hésitez pas à me <a href="{{ path('jl_platform_contact') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i> contacter</a>
@@ -28,14 +28,14 @@
         <hr class="separator-row">
         <div class="row">
             <div class="col-lg-12">
-                <h4 style="float: left;">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Informations</strong>
-                    <em class="text-muted" style="font-size: 0.6em;">A propos de moi</em>
+                <h4>
+                    <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>Informations</strong>
+                    <em class="text-muted">A propos de moi</em>
                 </h4>
-                <br><br>
-                <div class="col-lg-6 border-right">
+                <div class="col-lg-6">
                     <p>
-                        Je m'appelle Jérôme LELIEVRE, j'ai 22 ans. j'ai commencé le développement web à l'âge de 13 ans pour développer des petits sites web personnels.
+                        Je m'appelle Jérôme LELIEVRE, j'ai 22 ans.<br />
+                        J'ai commencé le développement web à l'âge de 13 ans pour développer des petits sites web personnels.
                         Faute de temps j'ai repris le développement beaucoup plus tard. Autodidacte de formation, j'aime expérimenter, découvrir et apprendre au fur et à mesure de mes projets.
                     </p>
                 </div>
@@ -50,37 +50,31 @@
         <hr class="separator-row">
         <div class="row">
             <div class="col-lg-12">
-                <div class="row">
-                    <h4 style="float: left;">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-briefcase fa-stack-1x" aria-hidden="true"></i>
-                            <i class="fa fa-check fa-stack-2x text-success" style="font-size: 0.8em;padding-top: 8px;padding-left: 30px;" aria-hidden="true"></i>
-                        </span>
-                        <strong>Mes dernières réalisations</strong>
-                        <em class="text-muted" style="font-size: 0.6em;">Mes derniers projets</em>
-                    </h4>
-                </div>
-                <div class="col-lg-12">
-                    <div class="row">
-                        {% if lastRealisation|length > 0 %}
-                            {% for realisation in lastRealisation %}
-                                <div class="col-lg-3">
-                                    <div class="row">
-                                        <img src="{{ realisation.urlImage }}" width="250" height="150" class="d-inline-block align-top img-thumbnail" alt="">
-                                    </div>
-                                    <div class="row" style="padding-left: 5px;">
-                                        <h6 style="padding-top: 5px;"><strong>{{ realisation.projetName }}</strong></h6>
-                                        <em class="text-muted">{{ realisation.shortDescription }}</em>
-                                    </div>
+                <h4>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-briefcase fa-stack-1x" aria-hidden="true"></i>
+                        <i class="fa fa-check fa-stack-2x text-success" style="font-size: 0.8em;padding-top: 8px;padding-left: 30px;" aria-hidden="true"></i>
+                    </span>
+                    <strong>Mes dernières réalisations</strong>
+                    <em class="text-muted">Mes derniers projets</em>
+                </h4>
+                {% if lastRealisation|length > 0 %}
+                    {% for realisation in lastRealisation %}
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="thumbnail">
+                                <img src="{{ realisation.urlImage }}" style="height:200px">
+                                <div class="caption thumbnail-informations">
+                                    <h3>{{ realisation.projetName }}</h3>
+                                    <em class="short-description">{{ realisation.shortDescription }}</em>
                                 </div>
-                            {% endfor %}
-                        {% else %}
-                            <div class="alert alert-info" role="alert">
-                                <strong>Ooops</strong> Je n'ai aucune réalisation à afficher pour le moment, mais je vais en ajouter prochainement !
                             </div>
-                        {% endif %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-info" role="alert">
+                        <strong>Ooops</strong> Je n'ai aucune réalisation à afficher pour le moment, mais je vais en ajouter prochainement !
                     </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </div>

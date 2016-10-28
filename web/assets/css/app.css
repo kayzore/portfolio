@@ -2,6 +2,10 @@ body {
     background-color: #f7f7f7;
 }
 
+nav {
+    margin-top: 10px;
+}
+
 .border-right {
     border-right: 1px solid #ddd;
 }
@@ -50,10 +54,6 @@ body {
     color: #f39c12;
 }
 
-em {
-    opacity: 0.6;
-}
-
 .work {
     margin-top: 10px 0;
     margin-bottom: 10px 0;
@@ -68,4 +68,12 @@ em {
 .work_slideshow img {
     width: 150px;
     height: 50 !important;
+}
+
+.thumbnail-informations {
+    text-align: center;
+}
+.short-description {
+    font-size: 0.9em;
+    opacity: 0.6;
 }
